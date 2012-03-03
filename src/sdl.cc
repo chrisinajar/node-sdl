@@ -3,7 +3,9 @@
 #include <objc/objc-runtime.h>
 #endif
 
-#include "SDL.h"
+#include <node.h>
+
+#include "sdl.h"
 
 using namespace v8;
 
@@ -255,7 +257,7 @@ Handle<Value> sdl::SetError(const Arguments& args) {
   return Undefined();
 }
 
-static void sdl::EIO_WaitEvent(eio_req *req) {
+static int sdl::EIO_WaitEvent(eio_req *req) {
   sdl::closure_t *closure = (sdl::closure_t *) req->data;
   closure->status = SDL_WaitEvent(NULL);
 }
