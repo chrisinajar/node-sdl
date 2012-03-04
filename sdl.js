@@ -1,4 +1,4 @@
-var SDL = module.exports = require('./build/Release/node-sdl.node');
+var SDL = module.exports = require('node-sdl');
 
 // Easy event emitter based event loop.  Started automatically when the first
 // listener is added.
@@ -22,4 +22,3 @@ Object.defineProperty(SDL, 'events', {
     return events;
   }
 });
-
